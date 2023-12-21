@@ -12,8 +12,10 @@ repositories {
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    implementation("net.jqwik:jqwik:1.5.0")
 }
 
 tasks.test {
     useJUnitPlatform()
+    jvmArgs("-Xmx1024m")
 }

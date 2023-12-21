@@ -18,7 +18,7 @@ public class RandomNumberGenerator {
             int count = Integer.parseInt(numCount);
 
             if((upper-lower+1)<count){
-                throw new IllegalArgumentException("\n->Errore: Il numero degli elementi da generare deve essere almeno uguale alla differenza+1 tra il limite superiore ed il limite inferiore.");
+                throw new IllegalArgumentException("\n->Errore: Il numero degli elementi da generare deve essere al massimo pari alla differenza+1 tra il limite superiore ed il limite inferiore.");
             }
 
             // Verifica se l'intervallo è valido
@@ -48,41 +48,7 @@ public class RandomNumberGenerator {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("\n->Errore: Inserito un valore non valido. Assicurati di inserire valori validi.");
         }
-    }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        // Input del limite inferiore
-        System.out.print("Inserisci il limite inferiore dell'intervallo (Inserisci 'q' per terminare): ");
-        String lowerLimit = scanner.next();
-
-        while (!lowerLimit.equals("q")) {
-            try {
-
-                // Input del limite superiore
-                System.out.print("Inserisci il limite superiore dell'intervallo: ");
-                String upperLimit = scanner.next();
-
-                // Input del numero di numeri da generare
-                System.out.print("Inserisci il numero degli elementi da generare nell'intervallo indicato: ");
-                String numCount = scanner.next();
-
-                // Genera l'intervallo e stampa i risultati
-                int[] generatedNumbers = generateUniqueRandomNumbersInRange(lowerLimit, upperLimit, numCount);
-                System.out.println("Numeri generati nell'intervallo:");
-                for (int num : generatedNumbers) {
-                    System.out.print(num + " ");
-                }
-
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-            // Input del limite inferiore
-            System.out.print("\n\nInserisci il limite inferiore dell'intervallo (Inserisci 'q' per terminare): ");
-            lowerLimit = scanner.next();
-        }
-        System.out.println("\n+++CHIUSURA PROGRAMMA IN CORSO+++");
-        scanner.close();
 
     }
 }
